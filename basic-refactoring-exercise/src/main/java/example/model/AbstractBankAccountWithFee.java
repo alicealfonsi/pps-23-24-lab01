@@ -1,10 +1,13 @@
 package example.model;
 
+/**
+ * This abstract class defines a generic bank account that includes fee.
+ */
 public abstract class AbstractBankAccountWithFee implements BankAccount {
 
     private double balance;
-    private AccountHolder holder;
-    private double fee;
+    private final AccountHolder holder;
+    protected double fee;
     
     public AbstractBankAccountWithFee (final double balance, final AccountHolder holder, final double fee) {
         this.balance = balance;
@@ -25,27 +28,26 @@ public abstract class AbstractBankAccountWithFee implements BankAccount {
     @Override
     public void deposit(final int userID, final double amount) {
         if (checkUser(userID)) {
-            this.balance = this.balance + amount - fee;
+            this.balance = this.balance + amount - this.fee;
         }
     }
 
     @Override
     public void withdraw(final int userID, final double amount) {
         if (checkUser(userID) && isWithdrawAllowed(amount)) {
-            this.balance = this.balance - amount - fee;
+            this.balance = this.balance - amount - this.fee;
         }
     }
 
     protected boolean isWithdrawAllowed(final double amount) {
-        return this.balance >= amount + fee;
+        return this.balance >= amount + this.fee;
     }
 
     protected boolean checkUser(final int id) {
         return this.holder.getId() == id;
     }
 
-    protected void setFee(final double fee) {
-        this.fee = fee;
+    public double getFee() {
+        return this.fee;
     }
-
 }

@@ -32,4 +32,10 @@ public interface BankAccount {
      * @param amount the amount of the withdrawal
      */
     void withdraw(int userID, double amount);
+
+    /**
+     * Returns the fee to be paid for deposit and withdrawal.
+     * @return the fee
+     */
+    double getFee();
 }
