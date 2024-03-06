@@ -16,13 +16,13 @@ public interface CircularList {
     void add(final int element);
 
     /**
-     * Provides the current size of the list
+     * Provides the current size of the list.
      * @return the size of the list
      */
     int size();
 
     /**
-     * Checks if the list is empty
+     * Checks if the list is empty.
      * @return true if the list is empty, false otherwise
      */
     boolean isEmpty();

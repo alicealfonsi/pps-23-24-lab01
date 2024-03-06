@@ -39,15 +39,16 @@ public abstract class AbstractBankAccountWithFee implements BankAccount {
         }
     }
 
+    @Override
+    public double getFee() {
+        return this.fee;
+    }
+
     protected boolean isWithdrawAllowed(final double amount) {
         return this.balance >= amount + this.fee;
     }
 
     protected boolean checkUser(final int id) {
         return this.holder.getId() == id;
-    }
-
-    public double getFee() {
-        return this.fee;
     }
 }
