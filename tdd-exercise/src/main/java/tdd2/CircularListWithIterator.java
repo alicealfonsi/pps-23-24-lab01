@@ -25,15 +25,15 @@ public interface CircularListWithIterator {
      */
     boolean isEmpty();
 
-    /** ????????????????
-     * Provides the next element of the list, as given by the built-in iterator.
+    /**
+     * Provides the next element of the list.
      * @return the next element of the list, or an empty optional if the list is empty
      */
     Iterator<Integer> forwardIterator();
 
-    /** ????????????????
-     * Provides the previous element of the list. Its behaviour is dual of the next() method.
-     * @return the previous element into the list
+    /**
+     * Provides the previous element of the list.
+     * @return the previous element into the list, or an empty optional if the list is empty
      */
     Iterator<Integer> backwardIterator();
 
